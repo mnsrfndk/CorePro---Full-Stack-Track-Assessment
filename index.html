@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+
+</head>
+<body>
+  <!-- Hard coded product datas to quickly display data and see how it will look on a page without writing the code to dynamically generate the content, as the aim of this assessment is to save product data to use them later in the system. -->
+    <div id="products">
+      <h1>Products</h1>
+      <div class="product" data-name="Mac Air M2" data-price="1199" data-description="Keep working — or playing — all day and into the night with up to 18 hours of battery life">
+        <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665" alt="">
+        <h2>Mac Air M2</h2>
+        <p class="price">Price: $1199</p>
+        <p>Keep working — or playing — all day and into the night with up to 18 hours of battery life</p>
+      </div>
+      <div class="product" data-name="Amazon Echo Dot (3rd Gen)" data-price="50" data-description="A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.">
+        <img src="https://cdn.mos.cms.futurecdn.net/cfEEcVzhmDwoULoiHbLZsN.jpg" alt="">
+        <h2>Amazon Echo Dot (3rd Gen)</h2>
+        <p class="price">Price: $50</p>
+        <p>A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.</p>
+      </div>
+      <div class="product" data-name="Apple iPhone 12 Pro Max" data-price="1099" data-description="A high-end smartphone that features a large display, advanced camera system, powerful performance, and more">
+        <img src="https://thumbs.dreamstime.com/b/iphone-white-pro-max-pacific-blue-bratislava-slovakia-december-isolated-background-204587928.jpg" alt="">
+        <h2>Apple iPhone 12 Pro Max</h2>
+        <p class="price">Price: $1099</p>
+        <p>A high-end smartphone that features a large display, advanced camera system, powerful performance, and more</p>
+      </div>
+      <div class="product" data-name="Mac Air M2" data-price="1199" data-description="Keep working — or playing — all day and into the night with up to 18 hours of battery life">
+        <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665" alt="">
+        <h2>Mac Air M2</h2>
+        <p class="price">Price: $1199</p>
+        <p>Keep working — or playing — all day and into the night with up to 18 hours of battery life</p>
+      </div>
+      <div class="product" data-name="Amazon Echo Dot (3rd Gen)" data-price="50" data-description="A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.">
+        <img src="https://cdn.mos.cms.futurecdn.net/cfEEcVzhmDwoULoiHbLZsN.jpg" alt="">
+        <h2>Amazon Echo Dot (3rd Gen)</h2>
+        <p class="price">Price: $50</p>
+        <p>A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.</p>
+      </div>
+      <div class="product" data-name="Apple iPhone 12 Pro Max" data-price="1099" data-description="A high-end smartphone that features a large display, advanced camera system, powerful performance, and more">
+        <img src="https://thumbs.dreamstime.com/b/iphone-white-pro-max-pacific-blue-bratislava-slovakia-december-isolated-background-204587928.jpg" alt="">
+        <h2>Apple iPhone 12 Pro Max</h2>
+        <p class="price">Price: $1099</p>
+        <p>A high-end smartphone that features a large display, advanced camera system, powerful performance, and more</p>
+      </div>
+      <div class="product" data-name="Mac Air M2" data-price="1199" data-description="Keep working — or playing — all day and into the night with up to 18 hours of battery life">
+        <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665" alt="">
+        <h2>Mac Air M2</h2>
+        <p class="price">Price: $1199</p>
+        <p>Keep working — or playing — all day and into the night with up to 18 hours of battery life</p>
+      </div>
+      <div class="product" data-name="Amazon Echo Dot (3rd Gen)" data-price="50" data-description="A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.">
+        <img src="https://cdn.mos.cms.futurecdn.net/cfEEcVzhmDwoULoiHbLZsN.jpg" alt="">
+        <h2>Amazon Echo Dot (3rd Gen)</h2>
+        <p class="price">Price: $50</p>
+        <p>A smart speaker that allows you to control your smart home devices, play music, make calls, and more using voice commands.</p>
+      </div>
+      <div class="product" data-name="Apple iPhone 12 Pro Max" data-price="1099" data-description="A high-end smartphone that features a large display, advanced camera system, powerful performance, and more">
+        <img src="https://thumbs.dreamstime.com/b/iphone-white-pro-max-pacific-blue-bratislava-slovakia-december-isolated-background-204587928.jpg" alt="">
+        <h2>Apple iPhone 12 Pro Max</h2>
+        <p class="price">Price: $1099</p>
+        <p>A high-end smartphone that features a large display, advanced camera system, powerful performance, and more</p>
+      </div>
+    </div>
+    <div id="shopping-cart">
+      <h1>Shopping Cart</h1>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+      </table>
+      <p id="total"></p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
